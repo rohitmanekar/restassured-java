@@ -6,8 +6,6 @@ import io.restassured.config.RestAssuredConfig;
 import io.restassured.specification.RequestSpecification;
 import utils.Config;
 
-import java.time.Clock;
-
 import static io.restassured.RestAssured.given;
 
 public class BaseService {
