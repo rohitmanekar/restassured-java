@@ -1,4 +1,4 @@
-import models.CreateUserModel;
+import models.request.CreateUserModel;
 import org.junit.jupiter.api.Test;
 import services.BaseService;
 import services.GoRestService;
