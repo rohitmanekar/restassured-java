@@ -9,13 +9,10 @@ This repository contains API testing examples using RestAssured with Java. The p
 
 - **src/main/java/**: Directory for main application code (if any).
 - **src/test/java/**: Directory for test classes and configuration.
-  - **config/TestConfig.java**: Configuration class for RestAssured setup.
-  - **tests/**: Directory for test cases.
-    - `GetTests.java`: Contains test cases for HTTP GET requests.
-    - `PostTests.java`: Contains test cases for HTTP POST requests.
-    - `PutTests.java`: Contains test cases for HTTP PUT requests.
-    - `DeleteTests.java`: Contains test cases for HTTP DELETE requests.
-  - **utils/Utils.java**: Utility class for common test functions.
+  - **tests/**:
+    - `CreateUserTests`: Contains test cases for create user api requests.
+    - `UpdateUserTests`: Contains test cases for update user api requests.
+  - **utils/**: Utility classes for common test functions.
 - **pom.xml**: Maven project file that includes project metadata and dependencies.
 - **README.md**: Project documentation.
 
@@ -31,7 +28,6 @@ Ensure you have the following installed:
 
 1. Clone the repository:
 
-   ```bash
    git clone https://github.com/rohitmanekar/restassured-java.git
    cd restassured-java
 
