@@ -10,7 +10,7 @@ import static io.restassured.RestAssured.given;
 
 public class BaseService {
 
-    private static String token = "fa80cece96297cd1ee8f66607d62a94723a4ddd79769451e5a6ef9efba66ca61";
+    private static String token = Config.getProperty("api.validToken");
 
     // Method to set the token
     public static void setToken(String newToken) {

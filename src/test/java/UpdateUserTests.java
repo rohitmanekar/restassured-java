@@ -1,6 +1,5 @@
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
-import models.request.CreateUserModel;
 import models.request.UpdateUserModel;
 import org.junit.jupiter.api.Test;
 import services.BaseService;
@@ -9,12 +8,16 @@ import utils.ApiUtil;
 import utils.Config;
 import utils.RandomDataUtil;
 
-import static org.apache.http.HttpStatus.*;
+import static org.apache.http.HttpStatus.SC_OK;
+import static org.apache.http.HttpStatus.SC_UNPROCESSABLE_ENTITY;
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class UpdateUserTests {
 
+    /**
+     * Test to validate that update users api works well
+     */
     @Test
     public void Users_UpdateUsers_Success() {
         BaseService.setToken(Config.getProperty("api.validToken"));
@@ -44,6 +47,9 @@ public class UpdateUserTests {
         assertEquals(getApiName, randomName, "Names do not match");
     }
 
+    /**
+     * Negative Test to validate if the api handles the invalid email
+     */
     @Test
     public void Users_UpdateUsers_InvalidEmail_Error() {
         BaseService.setToken(Config.getProperty("api.validToken"));
@@ -63,6 +69,9 @@ public class UpdateUserTests {
                 .body("[0].message", containsString("is invalid"));
     }
 
+    /**
+     * Negative Test to validate if the api handles the invalid status
+     */
     @Test
     public void Users_UpdateUsers_InvalidStatus_Error() {
         BaseService.setToken(Config.getProperty("api.validToken"));
@@ -82,6 +91,9 @@ public class UpdateUserTests {
                 .body("[0].message", containsString("can't be blank"));
     }
 
+    /**
+     * Negative Test to validate if the api handles the blank name
+     */
     @Test
     public void Users_UpdateUsers_BlankName_Error() {
         BaseService.setToken(Config.getProperty("api.validToken"));
@@ -101,7 +113,9 @@ public class UpdateUserTests {
                 .body("[0].message", containsString("can't be blank"));
     }
 
-
+    /**
+     * Negative Test to validate if the api handles the blank email
+     */
     @Test
     public void Users_UpdateUsers_BlankEmail_Error() {
         BaseService.setToken(Config.getProperty("api.validToken"));
@@ -120,5 +134,4 @@ public class UpdateUserTests {
                 .body("[0].field", equalTo("email"))
                 .body("[0].message", containsString("can't be blank"));
     }
-
 }
